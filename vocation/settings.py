@@ -28,7 +28,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "discernment.middleware.NgrokHeaderMiddleware",
+    
 ]
 
 ROOT_URLCONF = 'vocation.urls'
