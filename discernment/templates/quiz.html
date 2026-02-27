@@ -1,0 +1,241 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .quiz-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .quiz-header h2 {
+        font-size: 28px;
+        color: #1a202c;
+        margin-bottom: 10px;
+    }
+    
+    .quiz-header p {
+        color: #4a5568;
+        font-size: 16px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .progress-bar {
+        width: 100%;
+        height: 4px;
+        background-color: #e2e8f0;
+        border-radius: 10px;
+        margin-bottom: 40px;
+        overflow: hidden;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        border-radius: 10px;
+        transition: width 0.3s ease;
+    }
+    
+    form {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .question-card {
+        background: white;
+        padding: 30px;
+        margin-bottom: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border-left: 4px solid #667eea;
+        transition: all 0.3s ease;
+    }
+    
+    .question-card:hover {
+        box-shadow: 0 8px 30px rgba(102, 126, 234, 0.15);
+    }
+    
+    .question-number {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+    
+    .question-text {
+        font-size: 18px;
+        font-weight: 600;
+        color: #1a202c;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    
+    .choices-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .choice-option {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        background-color: #f7fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .choice-option:hover {
+        background-color: #edf2f7;
+        border-color: #667eea;
+    }
+    
+    .choice-option input[type="radio"] {
+        margin-right: 15px;
+        cursor: pointer;
+        accent-color: #667eea;
+        width: 18px;
+        height: 18px;
+    }
+    
+    .choice-option input[type="radio"]:checked + label {
+        font-weight: 600;
+        color: #667eea;
+    }
+    
+    .choice-option label {
+        cursor: pointer;
+        color: #4a5568;
+        font-size: 15px;
+        flex: 1;
+        margin: 0;
+    }
+    
+    .choice-option input[type="radio"]:checked {
+        accent-color: #667eea;
+    }
+    
+    .choice-option.selected {
+        background-color: #667eea15;
+        border-color: #667eea;
+    }
+    
+    .submit-container {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid #e2e8f0;
+    }
+    
+    .submit-button {
+        padding: 16px 50px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .submit-button:hover {
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+    
+    .submit-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+    
+    @media (max-width: 768px) {
+        .question-card {
+            padding: 20px;
+        }
+        
+        .question-text {
+            font-size: 16px;
+        }
+        
+        .choice-option {
+            padding: 12px;
+        }
+        
+        .choice-option label {
+            font-size: 14px;
+        }
+    }
+</style>
+
+<div class="quiz-header">
+    <h2>Vocation Discernment Quiz</h2>
+    <p>Answer these 20 questions honestly and thoughtfully. There are no right or wrong answers—only your authentic response matters in discerning your spiritual calling.</p>
+</div>
+
+<div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+</div>
+
+<form method="POST" id="quizForm">
+    {% csrf_token %}
+    
+    {% for question in questions %}
+        <div class="question-card">
+            <span class="question-number">Question {{ forloop.counter }} of {{ questions|length }}</span>
+            <div class="question-text">{{ question.text }}</div>
+            
+            <div class="choices-container">
+                {% for choice in question.choice_set.all %}
+                    <div class="choice-option" onclick="this.querySelector('input').checked=true; this.classList.add('selected');">
+                        <input type="radio" 
+                               name="question_{{ question.id }}" 
+                               value="{{ choice.id }}" 
+                               required>
+                        <label>{{ choice.text }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+    
+    <div class="submit-container">
+        <button type="submit" class="submit-button">See Your Results</button>
+    </div>
+</form>
+
+<script>
+    // Update progress bar as user answers questions
+    const form = document.getElementById('quizForm');
+    const progressFill = document.getElementById('progressFill');
+    const totalQuestions = {{ questions|length }};
+    
+    function updateProgress() {
+        const answeredQuestions = form.querySelectorAll('input[type="radio"]:checked').length;
+        const percentage = (answeredQuestions / totalQuestions) * 100;
+        progressFill.style.width = percentage + '%';
+    }
+    
+    form.addEventListener('change', updateProgress);
+    
+    // Add visual feedback when choice is selected
+    document.querySelectorAll('.choice-option input[type="radio"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            const card = this.closest('.question-card');
+            card.querySelectorAll('.choice-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            this.closest('.choice-option').classList.add('selected');
+        });
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,402 @@
+[
+	{
+		"model": "discernment.question",
+		"pk": 1,
+		"fields": { "text": "I enjoy contemplative prayer and silence." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 1,
+		"fields": { "question": 1, "text": "True", "capuchin": 2, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 2,
+		"fields": { "question": 1, "text": "Neutral", "capuchin": 1, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 3,
+		"fields": { "question": 1, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 2,
+		"fields": { "text": "I prefer active ministry and outreach." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 4,
+		"fields": { "question": 2, "text": "True", "capuchin": 0, "dominican": 2, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 5,
+		"fields": { "question": 2, "text": "Neutral", "capuchin": 0, "dominican": 1, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 6,
+		"fields": { "question": 2, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 3,
+		"fields": { "text": "I am drawn to liturgy, rhythm, and communal prayer." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 7,
+		"fields": { "question": 3, "text": "True", "capuchin": 0, "dominican": 0, "benedictine": 2, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 8,
+		"fields": { "question": 3, "text": "Neutral", "capuchin": 0, "dominican": 0, "benedictine": 1, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 9,
+		"fields": { "question": 3, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 4,
+		"fields": { "text": "Simplicity and poverty appeal to me." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 10,
+		"fields": { "question": 4, "text": "True", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 2, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 11,
+		"fields": { "question": 4, "text": "Neutral", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 1, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 12,
+		"fields": { "question": 4, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 5,
+		"fields": { "text": "I value theological study and preaching." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 13,
+		"fields": { "question": 5, "text": "True", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 2 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 14,
+		"fields": { "question": 5, "text": "Neutral", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 1 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 15,
+		"fields": { "question": 5, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 6,
+		"fields": { "text": "I prefer a structured community life with clear customs." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 16,
+		"fields": { "question": 6, "text": "True", "capuchin": 2, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 17,
+		"fields": { "question": 6, "text": "Neutral", "capuchin": 1, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 18,
+		"fields": { "question": 6, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 7,
+		"fields": { "text": "I am drawn to works of charity and simple service." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 19,
+		"fields": { "question": 7, "text": "True", "capuchin": 0, "dominican": 2, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 20,
+		"fields": { "question": 7, "text": "Neutral", "capuchin": 0, "dominican": 1, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 21,
+		"fields": { "question": 7, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 8,
+		"fields": { "text": "I find consolation in silence and solitude." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 22,
+		"fields": { "question": 8, "text": "True", "capuchin": 0, "dominican": 0, "benedictine": 2, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 23,
+		"fields": { "question": 8, "text": "Neutral", "capuchin": 0, "dominican": 0, "benedictine": 1, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 24,
+		"fields": { "question": 8, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 9,
+		"fields": { "text": "I enjoy pastoral work and teaching." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 25,
+		"fields": { "question": 9, "text": "True", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 2, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 26,
+		"fields": { "question": 9, "text": "Neutral", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 1, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 27,
+		"fields": { "question": 9, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 10,
+		"fields": { "text": "I like clear rules and a balanced daily routine." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 28,
+		"fields": { "question": 10, "text": "True", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 2 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 29,
+		"fields": { "question": 10, "text": "Neutral", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 1 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 30,
+		"fields": { "question": 10, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 11,
+		"fields": { "text": "I feel called to community life and formation." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 31,
+		"fields": { "question": 11, "text": "True", "capuchin": 2, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 32,
+		"fields": { "question": 11, "text": "Neutral", "capuchin": 1, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 33,
+		"fields": { "question": 11, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 12,
+		"fields": { "text": "I like scholarly work, reading, and study." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 34,
+		"fields": { "question": 12, "text": "True", "capuchin": 0, "dominican": 2, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 35,
+		"fields": { "question": 12, "text": "Neutral", "capuchin": 0, "dominican": 1, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 36,
+		"fields": { "question": 12, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 13,
+		"fields": { "text": "I prefer a simple lifestyle focused on service." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 37,
+		"fields": { "question": 13, "text": "True", "capuchin": 0, "dominican": 0, "benedictine": 2, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 38,
+		"fields": { "question": 13, "text": "Neutral", "capuchin": 0, "dominican": 0, "benedictine": 1, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 39,
+		"fields": { "question": 13, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 14,
+		"fields": { "text": "I find consolation in serving the poor and marginalized." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 40,
+		"fields": { "question": 14, "text": "True", "capuchin": 0, "dominican": 2, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 41,
+		"fields": { "question": 14, "text": "Neutral", "capuchin": 0, "dominican": 1, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 42,
+		"fields": { "question": 14, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 15,
+		"fields": { "text": "I appreciate contemplative practices like lectio divina." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 43,
+		"fields": { "question": 15, "text": "True", "capuchin": 0, "dominican": 0, "benedictine": 2, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 44,
+		"fields": { "question": 15, "text": "Neutral", "capuchin": 0, "dominican": 0, "benedictine": 1, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 45,
+		"fields": { "question": 15, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 16,
+		"fields": { "text": "I enjoy preaching and sharing theology with others." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 46,
+		"fields": { "question": 16, "text": "True", "capuchin": 0, "dominican": 2, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 47,
+		"fields": { "question": 16, "text": "Neutral", "capuchin": 0, "dominican": 1, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 48,
+		"fields": { "question": 16, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 17,
+		"fields": { "text": "I value a balanced life of prayer and work (ora et labora)." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 49,
+		"fields": { "question": 17, "text": "True", "capuchin": 0, "dominican": 0, "benedictine": 2, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 50,
+		"fields": { "question": 17, "text": "Neutral", "capuchin": 0, "dominican": 0, "benedictine": 1, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 51,
+		"fields": { "question": 17, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 18,
+		"fields": { "text": "I am comfortable with a public-facing ministry (preaching, teaching)." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 52,
+		"fields": { "question": 18, "text": "True", "capuchin": 0, "dominican": 2, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 53,
+		"fields": { "question": 18, "text": "Neutral", "capuchin": 0, "dominican": 1, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 54,
+		"fields": { "question": 18, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 19,
+		"fields": { "text": "I seek ways to integrate prayer into everyday tasks." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 55,
+		"fields": { "question": 19, "text": "True", "capuchin": 0, "dominican": 0, "benedictine": 2, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 56,
+		"fields": { "question": 19, "text": "Neutral", "capuchin": 0, "dominican": 0, "benedictine": 1, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 57,
+		"fields": { "question": 19, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.question",
+		"pk": 20,
+		"fields": { "text": "I feel at peace when working directly with people in need." }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 58,
+		"fields": { "question": 20, "text": "True", "capuchin": 0, "dominican": 2, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 59,
+		"fields": { "question": 20, "text": "Neutral", "capuchin": 0, "dominican": 1, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	},
+	{
+		"model": "discernment.choice",
+		"pk": 60,
+		"fields": { "question": 20, "text": "False", "capuchin": 0, "dominican": 0, "benedictine": 0, "carmelite": 0, "augustinian": 0 }
+	}
+]

@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+    .hero {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        margin-bottom: 60px;
+        background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+        padding: 40px;
+        border-radius: 12px;
+    }
+    
+    .hero-text {
+        flex: 1;
+    }
+    
+    .hero h2 {
+        font-size: 32px;
+        color: #1a202c;
+        margin-bottom: 15px;
+        line-height: 1.2;
+    }
+    
+    .hero p {
+        font-size: 16px;
+        color: #4a5568;
+        line-height: 1.7;
+        margin-bottom: 30px;
+    }
+    
+    .hero-image {
+        flex: 1;
+        text-align: center;
+    }
+    
+    .hero-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+        transition: transform 0.4s ease;
+    }
+    
+    .hero-image img:hover {
+        transform: translateY(-5px);
+    }
+    
+    .cta-button {
+        display: inline-block;
+        padding: 14px 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .cta-button:hover {
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+    
+    .prayer-section {
+        background: linear-gradient(135deg, #faf8f8 0%, #f5f0f8 100%);
+        padding: 40px;
+        border-radius: 12px;
+        border-left: 5px solid #764ba2;
+        margin: 50px 0;
+        text-align: center;
+    }
+    
+    .prayer-section h3 {
+        color: #764ba2;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .prayer-section p {
+        color: #4a5568;
+        font-size: 15px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        font-style: italic;
+    }
+    
+    .scripture {
+        color: #667eea;
+        font-size: 13px;
+        font-weight: 500;
+    }
+    
+    /* Charism Cards Section */
+    .charisms-intro {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .charisms-intro h2 {
+        font-size: 28px;
+        color: #1a202c;
+        margin-bottom: 10px;
+    }
+    
+    .charisms-intro p {
+        color: #4a5568;
+        font-size: 16px;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .charisms-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin-bottom: 50px;
+    }
+    
+    .charism-card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border-top: 4px solid #667eea;
+        text-align: center;
+    }
+    
+    .charism-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
+    }
+    
+    .charism-card h3 {
+        color: #1a202c;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .charism-values {
+        color: #667eea;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .charism-card p {
+        color: #4a5568;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    /* Alternative card colors */
+    .charism-card:nth-child(2) {
+        border-top-color: #48bb78;
+    }
+    
+    .charism-card:nth-child(3) {
+        border-top-color: #f6ad55;
+    }
+    
+    .charism-card:nth-child(4) {
+        border-top-color: #4299e1;
+    }
+    
+    .charism-card:nth-child(5) {
+        border-top-color: #ed64a6;
+    }
+    
+    .charism-card:nth-child(2) .charism-values {
+        color: #48bb78;
+    }
+    
+    .charism-card:nth-child(3) .charism-values {
+        color: #f6ad55;
+    }
+    
+    .charism-card:nth-child(4) .charism-values {
+        color: #4299e1;
+    }
+    
+    .charism-card:nth-child(5) .charism-values {
+        color: #ed64a6;
+    }
+    
+    @media (max-width: 768px) {
+        .hero {
+            flex-direction: column;
+            gap: 30px;
+            padding: 25px;
+        }
+        
+        .hero h2 {
+            font-size: 24px;
+        }
+        
+        .hero p {
+            font-size: 15px;
+        }
+        
+        .charisms-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .prayer-section {
+            padding: 30px 20px;
+        }
+    }
+</style>
+
+<!-- Hero Section -->
+<div class="hero">
+    <div class="hero-text">
+        <h2>Discover Your Spiritual Calling</h2>
+        <p>This quiz helps you explore your values, strengths, and spiritual gifts to identify which religious charism—or spiritual tradition—might align with your vocation. Through thoughtful reflection on 20 questions, you'll gain insight into which of the five major charisms resonates most deeply with your calling.</p>
+        <a href="{% url 'quiz' %}" class="cta-button">Begin the Quiz</a>
+    </div>
+    <div class="hero-image">
+        <img src="{% static 'images/charism.png' %}" alt="Religious Calling">
+    </div>
+</div>
+
+<!-- Prayer Section Before Quiz -->
+<div class="prayer-section">
+    <h3>Preparing to Discern Your Vocation</h3>
+    <p>"I came that they may have life, and have it to the full." (John 10:10)</p>
+    <p>Before beginning this quiz, take a moment to quiet your mind and open your heart. Religious discernment is a sacred process—it's about listening to God's call in your life. There are no "right" or "wrong" answers here. Simply respond authentically to each question, reflecting on what truly resonates with your values and spiritual inclinations.</p>
+    <p class="scripture">Trust that this journey of self-discovery will illuminate your path forward.</p>
+</div>
+
+<!-- Charisms Overview Section -->
+<div class="charisms-intro">
+    <h2>Here we have 4 Mendicant Orders and 1 Monastic Order</h2>
+    <p>Each of these religious traditions represents a unique spiritual charism—a distinct way of living out the Gospel and serving God's kingdom.</p>
+</div>
+
+<div class="charisms-grid">
+    {% for charism_key, charism_data in charism_info.items %}
+    <div class="charism-card">
+        <h3>{{ charism_data.name }}</h3>
+        <div class="charism-values">{{ charism_data.values }}</div>
+        <p>{{ charism_data.description }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,349 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .result-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .result-header h2 {
+        font-size: 32px;
+        color: #1a202c;
+        margin-bottom: 10px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .result-header p {
+        color: #4a5568;
+        font-size: 16px;
+    }
+    
+    .primary-charism {
+        background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+        padding: 40px;
+        border-radius: 12px;
+        border-left: 5px solid #667eea;
+        margin-bottom: 50px;
+    }
+    
+    .primary-charism h3 {
+        color: #1a202c;
+        font-size: 36px;
+        margin: 0 0 15px 0;
+        font-weight: 700;
+    }
+    
+    .primary-charism .subtitle {
+        color: #667eea;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+    
+    .charism-desc {
+        color: #4a5568;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+    
+    .values-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    
+    .value-tag {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+    
+    .scores-section {
+        margin-top: 60px;
+    }
+    
+    .scores-section h3 {
+        font-size: 26px;
+        color: #1a202c;
+        margin-bottom: 10px;
+    }
+    
+    .scores-section > p {
+        color: #4a5568;
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .scores-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    
+    .score-card {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        border-top: 4px solid #667eea;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    
+    .score-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(102, 126, 234, 0.15);
+    }
+    
+    .score-card h4 {
+        color: #1a202c;
+        font-size: 16px;
+        margin: 0 0 12px 0;
+        font-weight: 600;
+    }
+    
+    .score-value {
+        font-size: 40px;
+        font-weight: 700;
+        color: #667eea;
+        margin-bottom: 8px;
+    }
+    
+    .score-card.winner {
+        border-top-color: #48bb78;
+        background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+        transform: scale(1.05);
+    }
+    
+    .score-card.winner .score-value {
+        color: #48bb78;
+    }
+    
+    .score-card.winner .winner-badge {
+        display: inline-block;
+        background: #48bb78;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+    
+    .score-card:nth-child(2) {
+        border-top-color: #48bb78;
+    }
+    
+    .score-card:nth-child(3) {
+        border-top-color: #f6ad55;
+    }
+    
+    .score-card:nth-child(4) {
+        border-top-color: #4299e1;
+    }
+    
+    .score-card:nth-child(5) {
+        border-top-color: #ed64a6;
+    }
+    
+    .cta-buttons {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid #e2e8f0;
+    }
+    
+    .btn {
+        padding: 14px 40px;
+        margin: 0 10px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+    
+    .btn-secondary {
+        background: white;
+        color: #667eea;
+        border: 2px solid #667eea;
+    }
+    
+    .btn-secondary:hover {
+        background: #667eea15;
+        transform: translateY(-2px);
+    }
+    
+    .reflection-prompt {
+        background: linear-gradient(135deg, #faf8f8 0%, #f5f0f8 100%);
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+        margin-top: 40px;
+        border-left: 5px solid #764ba2;
+    }
+    
+    .reflection-prompt h4 {
+        color: #764ba2;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .reflection-prompt p {
+        color: #4a5568;
+        font-size: 15px;
+        line-height: 1.7;
+        margin: 0;
+    }
+    
+    @media (max-width: 768px) {
+        .primary-charism {
+            padding: 25px;
+        }
+        
+        .primary-charism h3 {
+            font-size: 28px;
+        }
+        
+        .scores-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        .score-card.winner {
+            transform: scale(1);
+        }
+        
+        .btn {
+            display: block;
+            margin: 10px 0;
+        }
+    }
+</style>
+
+<div class="result-header">
+    <h2>Your Spiritual Charism</h2>
+    <p>Based on your authentic responses, here's your complete vocation profile</p>
+</div>
+
+<div class="primary-charism">
+    <div class="subtitle">Your Best Match</div>
+    <h3>{{ result_display }}</h3>
+    <p class="charism-desc">
+        {% if result == 'capuchin' %}
+            Emphasis on simplicity, poverty, and direct service to the poor. Capuchins value humility and a close relationship with nature, seeking to live out the Gospel with radical authenticity and compassion for those in need.
+        {% elif result == 'dominican' %}
+            Focus on study, preaching, and intellectual pursuit. Dominicans seek truth through learning and share it through teaching and ministry, believing that wisdom enlightens the soul and strengthens the faith of others.
+        {% elif result == 'benedictine' %}
+            Balance of prayer and work (ora et labora). Benedictines value liturgical life, stability, and communal rhythms, creating communities of worship and labor that bring order and peace to spiritual life.
+        {% elif result == 'carmelite' %}
+            Contemplative prayer and mystical experience. Carmelites seek deep union with God through silent prayer and interior transformation, pursuing the heights of the spiritual life through solitude and devotion.
+        {% elif result == 'augustinian' %}
+            Balance of study and pastoral care. Augustinians combine intellectual rigor with compassionate service to others, seeking to love God and neighbor through learning and active ministry.
+        {% endif %}
+    </p>
+    <div class="values-list">
+        {% if result == 'capuchin' %}
+            <span class="value-tag">Simplicity</span>
+            <span class="value-tag">Poverty</span>
+            <span class="value-tag">Service</span>
+            <span class="value-tag">Humility</span>
+            <span class="value-tag">Community</span>
+        {% elif result == 'dominican' %}
+            <span class="value-tag">Study</span>
+            <span class="value-tag">Preaching</span>
+            <span class="value-tag">Intellectual</span>
+            <span class="value-tag">Teaching</span>
+            <span class="value-tag">Service</span>
+        {% elif result == 'benedictine' %}
+            <span class="value-tag">Prayer</span>
+            <span class="value-tag">Work</span>
+            <span class="value-tag">Stability</span>
+            <span class="value-tag">Community</span>
+            <span class="value-tag">Liturgy</span>
+        {% elif result == 'carmelite' %}
+            <span class="value-tag">Contemplation</span>
+            <span class="value-tag">Prayer</span>
+            <span class="value-tag">Mysticism</span>
+            <span class="value-tag">Interior Life</span>
+            <span class="value-tag">Silence</span>
+        {% elif result == 'augustinian' %}
+            <span class="value-tag">Learning</span>
+            <span class="value-tag">Pastoral Care</span>
+            <span class="value-tag">Balance</span>
+            <span class="value-tag">Compassion</span>
+            <span class="value-tag">Community</span>
+        {% endif %}
+    </div>
+</div>
+
+<div class="scores-section">
+    <h3>Your Complete Score Breakdown</h3>
+    <p>Here's how you scored across all five charisms</p>
+    
+    <div class="scores-grid">
+        <div class="score-card {% if result == 'capuchin' %}winner{% endif %}">
+            <h4>Capuchin</h4>
+            <div class="score-value">{{ scores.capuchin }}</div>
+            {% if result == 'capuchin' %}<span class="winner-badge">✓ Your Match</span>{% endif %}
+        </div>
+        <div class="score-card {% if result == 'dominican' %}winner{% endif %}">
+            <h4>Dominican</h4>
+            <div class="score-value">{{ scores.dominican }}</div>
+            {% if result == 'dominican' %}<span class="winner-badge">✓ Your Match</span>{% endif %}
+        </div>
+        <div class="score-card {% if result == 'benedictine' %}winner{% endif %}">
+            <h4>Benedictine</h4>
+            <div class="score-value">{{ scores.benedictine }}</div>
+            {% if result == 'benedictine' %}<span class="winner-badge">✓ Your Match</span>{% endif %}
+        </div>
+        <div class="score-card {% if result == 'carmelite' %}winner{% endif %}">
+            <h4>Carmelite</h4>
+            <div class="score-value">{{ scores.carmelite }}</div>
+            {% if result == 'carmelite' %}<span class="winner-badge">✓ Your Match</span>{% endif %}
+        </div>
+        <div class="score-card {% if result == 'augustinian' %}winner{% endif %}">
+            <h4>Augustinian</h4>
+            <div class="score-value">{{ scores.augustinian }}</div>
+            {% if result == 'augustinian' %}<span class="winner-badge">✓ Your Match</span>{% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="reflection-prompt">
+    <h4>Next Steps in Your Discernment</h4>
+    <p>This result is a starting point for deeper reflection. Continue to pray, seek guidance from spiritual directors, and explore the rich traditions of these charisms. God's calling unfolds over time through patience, prayer, and openness to His grace.</p>
+</div>
+
+<div class="cta-buttons">
+    <a href="{% url 'home' %}"><button class="btn btn-primary">Back to Home</button></a>
+    <a href="{% url 'quiz' %}"><button class="btn btn-secondary">Retake Quiz</button></a>
+</div>
+
+{% endblock %}
